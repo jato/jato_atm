@@ -19,11 +19,32 @@ body {
   font-size: 50px;
 }
 
+.input.input {
+  height: 50px;
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+input[type=button] {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  
+}
+
+.input.withdraw {
+}
+
 .account {
   display: inline-block;
   background-color: grey;
   border: 1px solid #0000;
-  border-radius: 15px;
   margin: 10px;
   padding: 10px;
   width: 300px;
@@ -32,11 +53,10 @@ body {
 .balance {
   background-color: #E3E3E3;
   border: 1px solid #676767;
-  border-radius: 15px;
+  border-radius: 5px;
   font-family: 'Raleway', sans-serif;
-  font-size: 50px;
+  font-size: 2.5em;
   margin: 5px;
   padding: 25px 0px;
 }
-
 
