@@ -1,9 +1,8 @@
-function bankAccount(account, name, limit, blance) {
+function bankAccount(account, name, limit, balance) {
   this.account = account;
   this.name = name;
   this.limit = limit;
   this.balance = balance;
-  var amount = 0
 
   this.getAccount = function() {
     return this.account;
@@ -22,12 +21,28 @@ function bankAccount(account, name, limit, blance) {
   }
 
   this.withdraw_check = function(amount) {
-
-    this.can_charge = function(amount){
     if(this.balance + amount < this.limit) {
       return true;
     } else {
       return false;
     }
   }
+
+  this.withdraw = function(amount) {
+    if(this.withdraw_check(amount)) {
+      this.balance -= amount;
+    }
+
+  this.deposit = function(amount) {
+    this.balance += amount
+  }  
+
+
+  };
 }
+
+var customer = new bankAccount(123456, "James", 1000, 5000);
+// customer.prototype.account = "123456789"
+// customer.prototype.name = "James"
+// customer.prototype.limit = 1000
+// customer.prototype.balance = 5000
