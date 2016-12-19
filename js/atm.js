@@ -83,6 +83,8 @@ $(":button").on("click", function() {
     // If balance is sufficient 
     if (balanceCheck() != true) {
         calculate();
+    } else { 
+      alert("Insufficient funds.") 
     };
 
   
@@ -93,6 +95,7 @@ $(":button").on("click", function() {
 });
 
 
+// how to pull integer from text field
 function balanceCheck() {
     if ((parseInt($("#" + transaction).find($(".balance")).text()) + amount) < 0) {
         return true;
@@ -104,7 +107,7 @@ function calculate () {
     $("#" + transaction).find($(".balance")).text(amount + parseInt($("#" + transaction).find($(".balance")).text()));
 }
 
-
+// update the balance
 function updateBalance () {
     if (parseInt($("#" + transaction).find(".balance").text()) <= 0) {
         $("#" + transaction).find(".balance");
