@@ -1,47 +1,47 @@
 // base object logic, didn't work how I wanted (or.. at all)
 
-// function bankAccount(account, name, limit, balance) {
-//   this.account = account;
-//   this.name = name;
-//   this.limit = limit;
-//   this.balance = balance;
+function bankAccount(account, name, limit, balance) {
+  this.account = account;
+  this.name = name;
+  this.limit = limit;
+  this.balance = balance;
 
-//   this.getAccount = function() {
-//     return this.account;
-//   }
+  this.getAccount = function() {
+    return this.account;
+  }
 
-//   this.getLimit = function() {
-//       return this.limit;
-//   }
+  this.getLimit = function() {
+      return this.limit;
+  }
 
-//   this.getBalance = function() {
-//     return this.balance;
-//   }
+  this.getBalance = function() {
+    return this.balance;
+  }
 
-//   this.getName = function() {
-//     return this.name;
-//   }
+  this.getName = function() {
+    return this.name;
+  }
 
-//   this.withdraw_check = function(amount) {
-//     if(this.balance + amount < this.limit) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   }
+  this.withdraw_check = function(amount) {
+    if(this.balance + amount < this.limit) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-//   this.withdraw = function(amount) {
-//     if(this.withdraw_check(amount)) {
-//       this.balance -= amount;
-//     }
+  this.withdraw = function(amount) {
+    if(this.withdraw_check(amount)) {
+      this.balance -= amount;
+    }
 
-//   this.deposit = function(amount) {
-//     this.balance += amount
-//   }  
+  this.deposit = function(amount) {
+    this.balance += amount
+  }  
 
 
-//   };
-// }
+  };
+}
 
 
 
@@ -121,3 +121,61 @@ function updateBalance () {
 // end doc ready
 });
 
+
+// 2nd attempt at functional JS
+// var self = this;
+
+// function bankAccount(account, name, limit, balance) {
+//   var self = {}, _account, _name, _limit, _balance
+//   _account = account;
+//   _name = name;
+//   _limit = limit;
+//   _balance = balance;
+
+//   self.getAccount = function() {
+//     return _account;
+//   }
+
+//   self.getLimit = function() {
+//       return _limit;
+//   }
+
+//   self.getBalance = function() {
+//     return _balance;
+//   }
+
+//   self.getName = function() {
+//     return _name;
+//   }
+
+//   self.withdrawal_check = function(amount) {
+//     if(amount <= _limit && _balance - amount >= 0)
+//       return true;
+//     console.log("customer attempted to exceed limit or go negitive")
+//     return false;
+//   }
+
+//   self.withdrawal = function(amount) {
+//     if(self.withdrawal_check(amount)) {
+//       _balance -= amount;
+//     }
+//     return self
+//   };
+
+//   self.deposit = function(amount) {
+//     _balance += amount
+//     return self
+//   }  
+//   return self
+// }
+
+// var customer = bankAccount(123456, "James", 1000, 5000);
+// console.log(customer.getLimit())
+// console.log(customer.getName())
+// console.log(customer.getBalance())
+// customer.withdrawal(1000)
+// console.log(customer.getBalance())
+// customer.deposit(50)
+// console.log(customer.getBalance())
+// customer.withdrawal(25).deposit(33)
+// console.log(customer.getBalance())
