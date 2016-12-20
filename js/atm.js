@@ -179,3 +179,32 @@ function updateBalance () {
 // console.log(customer.getBalance())
 // customer.withdrawal(25).deposit(33)
 // console.log(customer.getBalance())
+
+var ATM = (function() {
+    var ATM = function() {}
+    ATM.prototype = {
+        withdraw: function(amount, accountNumber, pin) {
+      var withdrawn = this.bank.withdraw(amount, accountNumber, pin);
+      $('input#checking').val(withdrawn);
+      $('#accountBalance').text(this.checkBalance(accountNumber, pin));
+      return withdrawn;
+        },
+      checkBalance: function(accountNumber, pin) {
+        return this.bank.checkBalance(accountNumber, pin);
+    }
+
+    }
+    return {
+        create: function() {
+      var atm = new ATM();
+      atm.bank = Bank.create();
+      $('input#withdraw').click(function() {
+        atm.withdraw($('input#amount').val(),
+          $('input#accountNumber').val(),
+          $('input#PIN').val());
+      });
+            return atm;
+        }    
+  }
+})();
+
